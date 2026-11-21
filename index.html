@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F1E7">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Japan Atlas</title>
+  <meta name="atlas-data" content="locked">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- "Add to Home Screen" on a phone opens the atlas full-screen, like an app -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Japan Atlas">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/maplibre-gl.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="theme-day is-loading">
+  <a class="skip" href="#panel">Skip to itinerary</a>
+
+  <main id="map" aria-label="Interactive 3D map of the trip"></main>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="brand" id="brand" type="button" title="Whole-trip view">
+      <span class="brand__seal" aria-hidden="true">旅</span>
+      <span class="brand__text">
+        <span class="brand__name">Japan Atlas</span>
+        <span class="brand__dates" id="brand-dates"></span>
+      </span>
+    </button>
+    <nav class="chapters" id="chapters" aria-label="Destinations"></nav>
+    <div class="topbar__right" id="topbar-right"></div>
+  </header>
+
+  <aside class="panel" id="panel" aria-label="Itinerary"></aside>
+  <aside class="card" id="card" aria-label="Location details" hidden></aside>
+
+  <div class="controls" id="controls" aria-label="Map controls"></div>
+  <div class="scalebar" id="scalebar" aria-label="Map scale"></div>
+  <div class="layers" id="layers" hidden></div>
+
+  <footer class="timeline" id="timeline" aria-label="Trip timeline"></footer>
+
+  <section class="dashboard" id="dashboard" aria-label="Travel dashboard" hidden></section>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <div class="titlecard" id="titlecard" aria-live="polite"></div>
+  <section class="hud" id="hud" aria-label="Journey playback" hidden></section>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+  <div class="loading" id="loading">
+    <div class="loading__inner">
+      <span class="loading__seal">旅</span>
+      <p class="loading__title">Japan Atlas</p>
+      <p class="loading__sub" id="loading-text">Unfolding the map…</p>
+      <div id="lock" hidden></div>
+    </div>
+  </div>
+
+  <noscript><p style="position:fixed;inset:0;display:grid;place-items:center;background:#F6F1E7;font-family:serif">This atlas needs JavaScript to draw the map.</p></noscript>
+
+  <script src="vendor/maplibre-gl.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
